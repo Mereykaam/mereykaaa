@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>STYLE HUB | Сәнгі киім дүкені</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Header / Navigation */
+        .header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 18px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #fff, #d4af37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            color: #d4af37;
+            background: none;
+            -webkit-background-clip: unset;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero секция */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 32px;
+            margin: 40px 0;
+            padding: 70px 50px;
+            text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            border-radius: 32px;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        /* Cards */
+        .card {
+            background: #111111;
+            border-radius: 28px;
+            padding: 28px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+        }
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            border-left: 4px solid #d4af37;
+            padding-left: 18px;
+        }
+
+        /* Products Grid - фото өнімдер */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 28px;
+            margin-top: 16px;
+        }
+        .product-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s ease;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(212,175,55,0.2);
+        }
+        .product-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        .img-wrapper {
+            overflow: hidden;
+        }
+        .product-info {
+            padding: 18px;
+        }
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .product-price {
+            color: #d4af37;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+        .btn-shop {
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        .btn-shop:hover {
+            background: #d4af37;
+            color: #000;
+        }
+
+        /* News Section */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        .news-item {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 18px;
+            border-left: 3px solid #d4af37;
+        }
+        .news-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #d4af37;
+        }
+        .news-date {
+            font-size: 0.7rem;
+            color: #888;
+            margin: 6px 0;
+        }
+        .add-news-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .add-news-form input, .add-news-form textarea {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            padding: 12px 16px;
+            border-radius: 40px;
+            color: white;
+            font-size: 0.9rem;
+        }
+        button {
+            background: #d4af37;
+            color: #000;
+            border: none;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #c49a1e;
+            transform: scale(0.98);
+        }
+
+        /* Weather & Currency */
+        .weather-info {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .weather-temp {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #d4af37;
+        }
+        .currency-item {
+            display: flex;
+            justify-content: space-between;
+            background: #1a1a1a;
+            margin: 8px 0;
+            padding: 14px 18px;
+            border-radius: 20px;
+        }
+        .currency-rate {
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 20px;
+            }
+        }
+        @media (max-width: 680px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            .product-img {
+                height: 240px;
+            }
+            .header-inner {
+                flex-direction: column;
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #222;
+            margin-top: 40px;
+            color: #888;
+        }
+        .feedback-msg {
+            font-size: 0.8rem;
+            margin-top: 8px;
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">STYLE<span>HUB</span></div>
+        <div class="nav-links">
+            <a href="#">БАСТЫ БЕТ</a>
+            <a href="#">ЖАҢА ТҮСІМДЕР</a>
+            <a href="#">ЕРЛЕРГЕ</a>
+            <a href="#">ӘЙЕЛДЕРГЕ</a>
+            <a href="#">БАЙЛАНЫС</a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Premium коллекция 2025</h1>
+            <p>Соңғы трендтерді табыңыз — 30% дейін жеңілдік</p>
+        </div>
+    </div>
+
+    <div class="main-grid">
+        <!-- Сол жақ: Өнімдер + Жаңалықтар -->
+        <div>
+            <!-- Өнімдер бөлімі НАҚТЫ СУРЕТТЕРМЕН -->
+            <div class="card">
+                <h2>🔥 Үздік коллекция</h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- JavaScript арқылы нақты фотосуреттермен толтырылады -->
+                </div>
+            </div>
+
+            <!-- Жаңалықтар бөлімі -->
+            <div class="card">
+                <h2>📰 Сән жаңалықтары</h2>
+                <div id="newsContainer" class="news-list"></div>
+                <div class="add-news-form">
+                    <input type="text" id="newsTitle" placeholder="Жаңалық атауы...">
+                    <textarea id="newsDesc" rows="2" placeholder="Жаңалық сипаттамасы..."></textarea>
+                    <button id="addNewsBtn">+ Жаңалық қосу</button>
+                    <div id="newsFeedback" class="feedback-msg"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Оң жақ: Ауа райы + Валюта -->
+        <div>
+            <div class="card">
+                <h2>🌤️ Ауа райы</h2>
+                <div id="weatherWidget" class="weather-info">
+                    <div>📍 Қала: <strong id="cityName">Алматы</strong></div>
+                    <div class="weather-temp"><span id="tempValue">--</span> °C</div>
+                    <div><span id="weatherDesc">Жүктелуде...</span></div>
+                    <div style="font-size:0.7rem; margin-top:12px;" id="weatherTime"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💱 Валюта бағамы (KZT)</h2>
+                <div id="currencyList">
+                    <div class="currency-item"><span>💵 USD</span><span class="currency-rate" id="usdRate">-- ₸</span></div>
+                    <div class="currency-item"><span>💶 EUR</span><span class="currency-rate" id="eurRate">-- ₸</span></div>
+                    <div class="currency-item"><span>₽ RUB</span><span class="currency-rate" id="rubRate">-- ₸</span></div>
+                </div>
+                <div style="font-size:0.7rem; text-align:right; margin-top:10px;" id="currencyUpdateTime"></div>
+            </div>
+
+            <div class="card" style="background: linear-gradient(135deg, #1f1b14, #111);">
+                <h3>✨ VIP Ұсыныс</h3>
+                <p>Кодты қолданыңыз: <strong style="color:#d4af37">GOLD20</strong> — бірінші тапсырысқа 20% жеңілдік</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        © 2025 STYLE HUB — Сәнгі киім дүкені | Барлық суреттер Unsplash сайтынан
+    </footer>
+</div>
+
+<script>
+    // ----- ӨНІМДЕР (НАҚТЫ ФОТОСУРЕТТЕРМЕН)
+    const products = [
+        { name: "Блейзер (кең силуэт)", price: "89,900 ₸", img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600", category: "әйелдер" },
+        { name: "Былғары күрте", price: "129,000 ₸", img: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600", category: "ерлер" },
+        { name: "Жібек көйлек", price: "67,500 ₸", img: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600", category: "әйелдер" },
+        { name: "Классикалық джинсы", price: "34,900 ₸", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600", category: "ерлер" },
+        { name: "Жүн пальто", price: "149,000 ₸", img: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600", category: "әйелдер" },
+        { name: "Лимитті кроссовкалар", price: "55,000 ₸", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600", category: "ерлер" }
+    ];
+
+    function renderProducts() {
+        const grid = document.getElementById('productsGrid');
+        if(!grid) return;
+        grid.innerHTML = products.map(product => `
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img class="product-img" src="${product.img}" alt="${product.name}" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">${product.name}</div>
+                    <div class="product-price">${product.price}</div>
+                    <button class="btn-shop">Сатып алу</button>
+                </div>
+            </div>
+        `).join('');
+        // Сатып алу батырмаларына оқиға
+        document.querySelectorAll('.btn-shop').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                alert('✨ Тауар себетке қосылды! ✨');
+            });
+        });
+    }
+
+    // ----- ЖАҢАЛЫҚТАР (массив + қосу батырмасы)
+    let newsArray = [
+        { id: 1, title: "🔥 Жазғы жеңілдік басталды!", description: "Барлық жазғы коллекцияға 50% дейін шектеулі уақыт.", date: "2025-04-22" },
+        { id: 2, title: "📦 Бүкіл әлемге тегін жеткізу", description: "$150-ден жоғары тапсырыстарға тегін жеткізу.", date: "2025-04-20" },
+        { id: 3, title: "✨ Жаңа түсім: Джинсы коллекциясы", description: "Классикалық джинсы күртелер мен шалбарлар қайта қоймада.", date: "2025-04-18" }
+    ];
+
+    const newsContainer = document.getElementById('newsContainer');
+    const addBtn = document.getElementById('addNewsBtn');
+    const titleInput = document.getElementById('newsTitle');
+    const descInput = document.getElementById('newsDesc');
+    const feedbackDiv = document.getElementById('newsFeedback');
+
+    function escapeHtml(str) {
+        if(!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if(m === '&') return '&amp;';
+            if(m === '<') return '&lt;';
+            if(m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    function renderNews() {
+        if(!newsContainer) return;
+        if(newsArray.length === 0) {
+            newsContainer.innerHTML = '<div class="news-item">Әзірге жаңалық жоқ. Бірінші жаңалықты қосыңыз!</div>';
+            return;
+        }
+        const sorted = [...newsArray].reverse();
+        newsContainer.innerHTML = sorted.map(news => `
+            <div class="news-item">
+                <div class="news-title">📢 ${escapeHtml(news.title)}</div>
+                <div class="news-date">📅 ${news.date}</div>
+                <div>${escapeHtml(news.description)}</div>
+            </div>
+        `).join('');
+    }
+
+    function addNews() {
+        const title = titleInput.value.trim();
+        const desc = descInput.value.trim();
+        if(!title) {
+            feedbackDiv.innerHTML = '❌ Жаңалық атауын енгізіңіз!';
+            feedbackDiv.style.color = '#ff8888';
+            setTimeout(() => feedbackDiv.innerHTML = '', 2000);
+            return;
+        }
+        const finalDesc = desc || "Қосымша ақпарат жоқ.";
+        const today = new Date().toISOString().slice(0,10);
+        newsArray.push({
+            id: Date.now(),
+            title: title,
+            description: finalDesc,
+            date: today
+        });
+        renderNews();
+        titleInput.value = '';
+        descInput.value = '';
+        feedbackDiv.innerHTML = '✅ Жаңалық сәтті қосылды!';
+        feedbackDiv.style.color = '#d4af37';
+        setTimeout(() => feedbackDiv.innerHTML = '', 2500);
+    }
+
+    addBtn.addEventListener('click', addNews);
+    titleInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') addNews(); });
+
+    // ----- АУА РАЙЫ (дайын дерек, бірақ динамикалық)
+    function updateWeather() {
+        const saat = new Date().getHours();
+        let temp = 18;
+        let desc = "Күн ашық";
+        if(saat < 8) { temp = 12; desc = "Таңғы салқын"; }
+        else if(saat < 15) { temp = 24; desc = "Күн ашық"; }
+        else if(saat < 19) { temp = 22; desc = "Жартылай бұлтты"; }
+        else { temp = 14; desc = "Кешкі жел"; }
+        // аздап өзгеріс
+        temp = (temp + (Math.sin(Date.now()/3600000)*1.5)).toFixed(1);
+        document.getElementById('tempValue').innerText = temp;
+        document.getElementById('weatherDesc').innerText = desc;
+        document.getElementById('cityName').innerText = "Алматы";
+        document.getElementById('weatherTime').innerHTML = `🕒 Соңғы жаңарту: ${new Date().toLocaleTimeString('kk-KZ')}`;
+    }
+
+    // ----- ВАЛЮТА БАҒАМЫ (USD, EUR, RUB -> KZT)
+    let rates = { USD: 472.50, EUR: 515.30, RUB: 5.68 };
+    
+    function displayCurrencies() {
+        document.getElementById('usdRate').innerHTML = `${rates.USD.toFixed(2)} ₸`;
+        document.getElementById('eurRate').innerHTML = `${rates.EUR.toFixed(2)} ₸`;
+        document.getElementById('rubRate').innerHTML = `${rates.RUB.toFixed(2)} ₸`;
+        document.getElementById('currencyUpdateTime').innerHTML = `Соңғы жаңарту: ${new Date().toLocaleString('kk-KZ')}`;
+    }
+
+    // Валюта динамикалық өзгерісі (API симуляциясы)
+    function updateCurrencyDynamic() {
+        rates.USD = +(rates.USD + (Math.random() - 0.5) * 1.5).toFixed(2);
+        rates.EUR = +(rates.EUR + (Math.random() - 0.5) * 1.8).toFixed(2);
+        rates.RUB = +(rates.RUB + (Math.random() - 0.5) * 0.2).toFixed(2);
+        if(rates.USD < 450) rates.USD = 450;
+        if(rates.USD > 510) rates.USD = 510;
+        if(rates.EUR < 490) rates.EUR = 490;
+        if(rates.EUR > 550) rates.EUR = 550;
+        if(rates.RUB < 5.1) rates.RUB = 5.1;
+        if(rates.RUB > 6.5) rates.RUB = 6.5;
+        displayCurrencies();
+    }
+
+    // ----- БАРЛЫҒЫН ІСКЕ ҚОСУ
+    renderProducts();
+    renderNews();
+    updateWeather();
+    displayCurrencies();
+    
+    setInterval(() => updateWeather(), 180000);  // әр 3 минут сайын
+    setInterval(() => updateCurrencyDynamic(), 120000); // әр 2 минут сайын валюта жаңарту
+    
+    console.log('✅ STYLE HUB | Қазақша киім дүкені — суреттер, жаңалықтар, ауа райы, валюта');
+</script>
+</body>
+</html>
